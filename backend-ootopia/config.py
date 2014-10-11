@@ -13,7 +13,9 @@ _config = {
    "mongo-password": None,
    "mongo-port" : 27017,
    "mongo-host": "localhost",
-   "app-name": "Ootopia"   
+   "app-name": "Ootopia",
+   "api-username" : "inmobi",
+   "api-password": "as2dsf93ask2"
 }
 
 
@@ -44,5 +46,13 @@ class Config(object):
     @property
     def app_name(self):
         return _config["app_name"]
+        
+    @property
+    def api_username(self):
+        return _config["api-username"]
+    
+    @property
+    def api_password(self):
+        return _config["api-password"]
         
 config = Config()

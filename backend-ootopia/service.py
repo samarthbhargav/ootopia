@@ -13,17 +13,19 @@ class ReportService(object):
         self._dao = DAO()
     
     def insert(self,report):
-        self._dao.insertReport(report)
+        self._dao.insert_report(report)
     
-    def fetchAll(self):
-        reports = self._dao.fetchAllReports()
+    def fetch_all(self):
+        reports = self._dao.fetch_all_reports()
         return { "results" : reports }
-        
+    
+    def get_report(self, Id):
+        return self._dao.get(Id)
 
 
 if __name__ == "__main__":
     service = ReportService()
     
-    print service.fetchAll()
+    print service.fetch_all()
     
 

@@ -23,4 +23,4 @@ def get_collection(collection_name):
 
 if __name__ == "__main__":
     coll = get_collection("Monkey")
-    coll.insert({"as": "ass"})
+    coll.insert({"as": "as"})
