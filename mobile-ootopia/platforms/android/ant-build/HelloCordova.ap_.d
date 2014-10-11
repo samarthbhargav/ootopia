@@ -13,6 +13,7 @@
 /Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/res/drawable-port-xhdpi/screen.png \
 /Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/res/drawable-xhdpi/icon.png \
 /Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/res/values/strings.xml \
+/Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/res/values/version.xml \
 /Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/res/xml/config.xml \
 /Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/ant-build/res/drawable/icon.png \
 /Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/ant-build/res/drawable-hdpi/icon.png \
@@ -29,6 +30,7 @@
 /Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/ant-build/res/drawable-xhdpi/icon.png \
 /Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/assets/_where-is-www.txt \
 /Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/assets/www \
+/Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/assets/www/add_report.html \
 /Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/assets/www/cordova.js \
 /Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/assets/www/cordova_plugins.js \
 /Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/assets/www/css \
@@ -37,10 +39,17 @@
 /Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/assets/www/js \
 /Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/assets/www/plugins \
 /Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/assets/www/css/index.css \
+/Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/assets/www/css/styles.cs \
+/Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/assets/www/css/styles.css \
 /Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/assets/www/img/logo.png \
+/Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/assets/www/js/d3.js \
 /Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/assets/www/js/index.js \
 /Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/assets/www/js/indexOld.js \
+/Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/assets/www/js/india_states_topo.json \
 /Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/assets/www/js/jquery.js \
+/Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/assets/www/js/maharashtra_topo.json \
+/Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/assets/www/js/map.js \
+/Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/assets/www/js/topojson.v1.min.js \
 /Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/assets/www/plugins/org.apache.cordova.camera \
 /Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/assets/www/plugins/org.apache.cordova.camera/www \
 /Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/assets/www/plugins/org.apache.cordova.camera/www/Camera.js \

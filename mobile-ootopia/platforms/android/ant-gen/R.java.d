@@ -13,6 +13,7 @@
 /Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/res/drawable-port-xhdpi/screen.png \
 /Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/res/drawable-xhdpi/icon.png \
 /Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/res/values/strings.xml \
+/Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/res/values/version.xml \
 /Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/res/xml/config.xml \
 /Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/ant-build/res/drawable/icon.png \
 /Users/prometheansacrifice/development/InMobi-2014/ootopia/mobile-ootopia/platforms/android/ant-build/res/drawable-hdpi/icon.png \

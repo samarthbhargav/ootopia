@@ -51,6 +51,16 @@
 
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/d3.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/topojson.v1.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600'
+          rel='stylesheet' type='text/css'>
+    <link href='css/styles.css' rel='stylesheet' type='text/css'>
+
+
+
+
   </head>
   <!-- <body> -->
   <!--   <img style="display:none;width:60px;height:60px;" id="smallImage" src="" /> -->
@@ -64,37 +74,71 @@
   <!-- </body> -->
 
 
-  <body>
-      <input type="text" id="title" placeholder="title"/>
-      <input type="text" id="description" placeholder="description"/>
+  <!-- <body> -->
+  <!--     <input type="text" id="title" placeholder="title"/> -->
+  <!--     <input type="text" id="description" placeholder="description"/> -->
+  <!--     <\!-- time -\-> -->
+  <!--     <\!-- coords -\-> -->
+  <!--   <button id="captureImage">Capture Photo</button> <br> -->
+  <!--   <img style="display:none;width:60px;height:60px;" id="smallImage" src="" /> -->
+
+    
+  <!--   <label> Filthiness </label> -->
+  <!--   <select id="difficulty"> -->
+  <!--     <option value="1">1</option>  -->
+  <!--     <option value="2">2</option> -->
+  <!--     <option value="3">3</option> -->
+  <!--     <option value="4">4</option> -->
+  <!--     <option value="5">5</option> -->
+  <!--   </select> -->
+  <!--   <button id="submit"> Submit </button> -->
+    
+
+
+  <!--   <div id="map-canvas"></div> -->
+
+
+  <!--   <script type="text/javascript" -->
+  <!--     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGRMwIaIRJiucc-apdSZmeWHjjhw2dCYs"> -->
+
+  <!--   <script type="text/javascript" charset="utf-8" src="js/index.js"></script> -->
+  <!-- </body> -->
+
+
+
+
+
+  <div id="viewContainer">
+    <form id="report-form">
+      <input type="text" id="title" placeholder="Enter the title"/>
+      <input type="text-area" id="description" placeholder="Enter a description (optional)"/>
       <!-- time -->
-      <!-- coords -->
-    <button id="captureImage">Capture Photo</button> <br>
-    <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
+      <!-- coords -->		
 
-    
-    <label> Filthiness </label>
-    <select id="difficulty">
-      <option value="1">1</option> 
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select>
-    <button id="submit"> Submit </button>
-    
+      <div id="filthiness">
+	<label> How filthy / unbearable is the spot? </label>
+	<select id="difficulty" class="styled-select">
+	  <option value="1">1</option> 
+	  <option value="2">2</option>
+	  <option value="3">3</option>
+	  <option value="4">4</option>
+	  <option value="5">5</option>
+	</select>
+      </div>
+      <button id="captureImage">Capture Photo</button>
+      <!-- <img style="display:none;width:60px;height:60px;" id="smallImage" src="" /> -->
+      <button id="submit"> Submit </button>
+      
+    </form>
+  </div>
+  <button id="showMap"> Show Map </button>
+  <div id="mapView" style="display: none">
+    <div id="choroplethOneLayerContainer">
+      <iframe style="width: 100%; height: 100%" src="http://j5gm.t.proxylocal.com/page.html"></iframe>
+    </div>
+  </div>
 
-
-
-
-    <div id="map-canvas"></div>
-
-
-    <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGRMwIaIRJiucc-apdSZmeWHjjhw2dCYs">
-
+    <script type="text/javascript" charset="utf-8" src="js/map.js"></script>                
     <script type="text/javascript" charset="utf-8" src="js/index.js"></script>
-  </body>
-
 
 </html>
