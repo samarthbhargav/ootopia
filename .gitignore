@@ -1,3 +1,4 @@
 *.pyc
 .DS_Store
 *~
+backend-ootopia/static/*.jpg
