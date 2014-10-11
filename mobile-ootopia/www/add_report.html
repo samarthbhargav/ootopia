@@ -1,0 +1,154 @@
+<html>
+  <head>
+    <title>Add new Report</title>
+
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+		body {
+			font-size: 100%;
+			font-family: 'Arimo', sans-serif;			
+		}
+		
+		#report-form {
+			width : 100%;
+		}
+
+		
+		::-webkit-input-placeholder { /* WebKit browsers */
+			color:    #ccc;
+		}
+		:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+		   color:    #ccc;
+		   opacity:  1;
+		}
+		::-moz-placeholder { /* Mozilla Firefox 19+ */
+		   color:    #ccc;
+		   opacity:  1;
+		}
+		:-ms-input-placeholder { /* Internet Explorer 10+ */
+		   color:    #ccc;
+		}
+		
+			
+		#title {
+			margin-top: 2%;				
+			margin-bottom: 2%;
+			display: block;
+			width : 100%;
+			border: 2px solid #38AC5F;
+		}
+		
+		#description {
+			margin-top: 2%;				
+			margin-bottom: 2%;
+			display: block;
+			width : 100%;
+			border: 2px solid #38AC5F;
+		}
+		
+		#captureImage {
+			margin-top: 2%;				
+			margin-bottom: 2%;
+			display: block;
+			width : 100%;
+			text-align: centre;
+		}
+		
+		#smallImage {
+			margin-top: 2%;				
+			margin-bottom: 2%;
+			display: block;
+			width : 100%;
+		}
+		
+		#filthiness{
+			margin-top: 2%;				
+			margin-bottom: 2%;
+			display: block;
+			width : 100%;
+		}
+		
+		#submit{
+			margin-top: 2%;				
+			margin-bottom: 2%;
+			display: block;
+			width : 100%;
+		}
+		
+		button {
+			background-color: #38AC5F;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+			border: 0px;
+			padding: 20px;
+			color: white;
+		}
+		
+		form > input {
+			-webkit-border-radius: 15px;
+			-moz-border-radius: 15px;
+			border-radius: 15px;
+			padding: 10px;
+		}
+		
+		.styled-select {
+		   background: transparent;
+		   width: 268px;
+		   padding: 5px;
+		   font-size: 16px;
+		   line-height: 1;
+		   border: 0;
+		   border-radius: 0;
+		   height: 34px;
+		   -webkit-appearance: none;
+		   background-color: #ccc;
+		}
+		
+		
+    </style>
+  </head>
+
+
+	<body>
+		  <div id="header">
+			  
+		  </div>
+		  <form id="report-form">
+			<input type="text" id="title" placeholder="Enter the title"/>
+			<input type="text-area" id="description" placeholder="Enter a description (optional)"/>
+			<!-- time -->
+			<!-- coords -->		
+
+			<div id="filthiness">
+				<label> How filthy / unbearable is the spot? </label>
+				<select id="difficulty" class="styled-select">
+					<option value="1">1</option> 
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
+			</div>
+			<button id="captureImage">Capture Photo</button>
+			<img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
+			<button id="submit"> Submit </button>
+			
+		  </form>
+		  
+
+
+
+
+		<div id="map-canvas"></div>
+
+
+		<!--<script type="text/javascript"
+		  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGRMwIaIRJiucc-apdSZmeWHjjhw2dCYs"> -->
+
+		<script type="text/javascript" charset="utf-8" src="js/index.js"></script>
+	</body>
+
+</html>
