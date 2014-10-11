@@ -17,6 +17,7 @@ from service import ReportService
 from flask_cors import CORS
 from entity import Report
 import flask
+import datetime
  
 app = Flask(__name__, static_folder='static', static_url_path='')
 #app = Flask(__name__)
@@ -166,6 +167,7 @@ class GetMapPage(restful.Resource):
 @app.route('/render/<report_id>')
 def render(report_id):
     report = service.get_report(report_id)
+    report["time"] = datetime.datetime.fromtimestamp(report["time"]).strftime('%d-%m-%Y %H:%M:%S')
     return flask.render_template('render_report.html', data=(report))
 
     
