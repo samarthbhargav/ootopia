@@ -15,6 +15,7 @@ from functools import wraps
 from config import config
 from service import ReportService
 from flask_cors import CORS
+from entity import Report
 import flask
  
 app = Flask(__name__, static_folder='static', static_url_path='')
@@ -155,6 +156,19 @@ class GetImageAPI(restful.Resource):
     def get(self, report_id):
         return app.send_static_file(report_id + ".jpg")
         
+
+class GetMapPage(restful.Resource):
+    
+    def get(self):        
+        return app.send_static_file("page.html")
+        
+
+@app.route('/render/<report_id>')
+def render(report_id):
+    report = service.get_report(report_id)
+    return flask.render_template('render_report.html', data=(report))
+
+    
 api.add_resource(GetReportAPI, '/report/<string:report_id>')
 api.add_resource(GetImageAPI, '/report/<string:report_id>/image/')
 api.add_resource(PostReportAPI, '/report')
@@ -162,6 +176,8 @@ api.add_resource(SearchAPI, '/search')
 api.add_resource(SearchByLocationAPI, '/search/<string:location>')
 api.add_resource(Hello, '/hello')
 api.add_resource(UpdateReportStatusAPI, '/report/<string:Id>/<string:new_status>')
+api.add_resource(GetMapPage, '/page.html')
+#api.add_resource(RenderReport, '/render/<string:report_id>.html')
 
 
 if __name__ == '__main__':
