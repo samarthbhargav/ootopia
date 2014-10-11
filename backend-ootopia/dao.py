@@ -15,8 +15,10 @@ class DAO(object):
     def __init__(self):
         self._col = mongo.get_collection("Report")
     
-    def insert_report(self,report):
-        self._col.insert(Report.toJson(report))
+    def insert_report(self,report):        
+        rep = Report.toJson(report)
+        del rep["imageData"]
+        return self._col.insert(rep)
         
     def fetch_all_reports(self):
         reports = []

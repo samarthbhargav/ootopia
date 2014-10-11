@@ -19,7 +19,13 @@ class ReportService(object):
         report = Report.fromJson(report)
         if report.latitude is not None and report.longitude is not None:
             report.address = ReportService.mapAPI.reverse_geocode(report.latitude, report.longitude)        
-        self._dao.insert_report(report)
+            
+        id_ = self._dao.insert_report(report)
+        if report.pic is not None and len(report.pic) != 0:
+            img = report.pic.decode('base64')
+            with open('static/{}.jpg'.format(id_), 'wb') as imgfile:
+                imgfile.write(img)
+        
     
     def fetch_all(self):
         reports = self._dao.fetch_all_reports()

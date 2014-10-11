@@ -17,8 +17,8 @@ from service import ReportService
 from flask_cors import CORS
 import flask
  
-app = Flask(__name__)
-
+app = Flask(__name__, static_folder='static', static_url_path='')
+#app = Flask(__name__)
 cors = CORS(app)
 
 @app.after_request
@@ -36,14 +36,14 @@ def add_cors(resp):
     return resp
     
 api = restful.Api(app)
-#api.decorators = [cors.crossdomain(origin='*', headers=['accept', 'Content-Type'])]
+
 
 class Hello(restful.Resource):
     def get(self):
         return { "Hello" : "World"}
 
-#    def options(self):
-#        pass
+
+
 def basic_authentication():
     """
     Performs HTTP Basic Authentication
@@ -105,8 +105,7 @@ class PostReportAPI(restful.Resource):
         service.insert(json_data)
         return {"message":"Report successfully added"}
     
-#    def options(self):
-#        pass    
+
 class GetReportAPI(restful.Resource):
     """
     Api for Getting a Report
@@ -129,16 +128,13 @@ class GetReportAPI(restful.Resource):
     def get(self, report_id):
         return service.get_report(report_id)
     
-#    def options(self):
-#        pass
+
 class SearchAPI(restful.Resource):
     """
     """
     def get(self):
         return service.fetch_all()
 
-#    def options(self):
-#        pass
 
 class SearchByLocationAPI(restful.Resource):
     """
@@ -146,21 +142,27 @@ class SearchByLocationAPI(restful.Resource):
     """
     def get(self, location):
         return service.get_reports_by_location(location)
-    
-#    def options(self):
-#        pass
 
+    
 class UpdateReportStatusAPI(restful.Resource):
     
     def put(self, Id, new_status):
         service.update_status(Id, new_status)
+
+
+class GetImageAPI(restful.Resource):
+    
+    def get(self, report_id):
+        return app.send_static_file(report_id + ".jpg")
         
 api.add_resource(GetReportAPI, '/report/<string:report_id>')
+api.add_resource(GetImageAPI, '/report/<string:report_id>/image/')
 api.add_resource(PostReportAPI, '/report')
 api.add_resource(SearchAPI, '/search')
 api.add_resource(SearchByLocationAPI, '/search/<string:location>')
 api.add_resource(Hello, '/hello')
 api.add_resource(UpdateReportStatusAPI, '/report/<string:Id>/<string:new_status>')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
