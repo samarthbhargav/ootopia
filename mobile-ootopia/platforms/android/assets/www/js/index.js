@@ -1,4 +1,4 @@
-// document.addEventListener("deviceready", function () {
+document.addEventListener("deviceready", function () {
 
     var pictureSource;   // picture source
     var destinationType; // sets the format of returned value
@@ -110,7 +110,6 @@
 
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
-
     }
 
 
@@ -119,47 +118,8 @@
     document.getElementById('showMap').addEventListener('click', function (evt) {
         $('#viewContainer').html($('#mapView').html());
 
-
-
-
-        // $.ajax({
-        //     url: $App.globals.baseUrl + '/page.html',
-        //     type: 'POST',
-        //     data: JSON.stringify($ReportView.formData),
-        //     success: function (reportResponse) {
-        //         alert(reportResponse);
-        //         alert('Sucess');
-        //         // alert('Success');
-        //         // alert(JSON.stringify(reportResponse));
-        //     },
-        //     error: function (errorResponse) {
-        //         alert('Error');
-        //         alert((JSON.stringify(errorResponse)));
-        //     }
-        // });
-
         
         // drawMap();
     });
 
-
-
-    //     k = new PykCharts.choroplethOneLayer({
-    //         selection: "#choroplethOneLayerContainer",
-    //         topojson: "res/data/india_states_topo.json",
-    //         geo_data: "res/data/2004_results_state.json",
-    //         width: 160,
-    //         height: 150,
-    //         colorscale: cscale,
-    //         colorcode : "green",  //Specify colorname  or hashcode only for ordinal scale.
-    //         //Leave blank for linear scale
-    //         projectionScale: 800,
-    //         projectionTranslateX: -900,
-    //         projectionTranslateY: 550,
-    //         sourceName:"",
-    //         sourceLink:""
-    //     });
-    //     k.execute();
-
-    // });
-// });
+});
