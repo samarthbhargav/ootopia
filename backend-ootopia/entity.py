@@ -11,40 +11,61 @@ class Report(object):
 
     @staticmethod
     def toJson(report):
-        r = {}
+        r = {}        
         r["title"] = report.title
-        r["desc"] = report.desc
+        r["description"] = report.desc
         r["location"] = report.location
         r["difficulty"] = report.difficulty
-        r["pic"] = report.pic
-        r["time"] = report.time
+        r["imageData"] = report.pic
+        r["time"] = report.time     
+        if report.id is not None:
+            r["id"] = report.id
+        r["status"] = report.status        
         return r
     
+    @staticmethod
     def fromJson(values):
         report = Report()
-        report._title = values["title"]
-        report._difficulty = values["difficulty"]
-        report._time = values["time"]
-        report._desc = values["desc"]
-        report._location = values["location"]
-        report._pic = values["pic"]
+        if "title" in values:
+            report._title = values["title"]
+        if "difficulty" in values:
+            report._difficulty = values["difficulty"]
+        if "time" in values:
+            report._time = values["time"]
+        if "description" in values:
+            report._desc = values["description"]
+        if "location" in values:
+            report._location = values["location"]
+        if "imageData" in values:
+            report._pic = values["imageData"]
+        if "status" in values:
+            report._status = values["status"]
+        if "_id" in values:
+            report._id = str(values["_id"])        
         return report
 
     
-    def __init__(self,values = None):
-        if values == None :
-            self._title = None
-            self._difficulty = None
-            self._time = None
-            self._desc = None
-            self._location = {}
-            self._location["lat"] = None
-            self._location["long"] = None
-            self._pic = None
-        else:
-            self = Report.fromJson()
+    def __init__(self):        
+        self._title = None
+        self._difficulty = None
+        self._time = None
+        self._desc = None
+        self._location = {
+            "lat" : None,
+            "long" : None, 
+            "address": []                
+        }
+        self._location["lat"] = None
+        self._location["long"] = None
+        self._pic = None
+        self._id = None
+        self._status = None
     
      # properties
+
+    @property
+    def status(self):
+        return self._status
     
     @property
     def title(self):
@@ -69,6 +90,36 @@ class Report(object):
     @property
     def pic(self):
         return self._pic        
+
+    @property
+    def latitude(self):
+        if self._location is not None and "lat" in self._location:
+            return self._location["lat"]
+        else:
+            return None
+    
+        
+    @property
+    def longitude(self):
+        if self._location is not None and "long" in self._location:
+            return self._location["long"]
+        else:
+            return None
+    
+    @property
+    def address(self):
+        if self._location is not None and "address" in self._location:
+            return self._location["address"]
+        else:
+            return None
+        
+    @property
+    def id(self):
+        return self._id
+        
+    @status.setter
+    def status(self, value):
+        self._status = value
     
     # setters
     @title.setter
@@ -95,7 +146,17 @@ class Report(object):
     def pic(self, value):
         self._pic = value
     
-           
+    @id.setter
+    def id(self, value):
+        self._id = value
+          
+    @address.setter
+    def address(self, value):        
+        self._location["address"] = value
+        
+    def __str__(self):        
+        return "\n".join("{}: {}".format(k, v) for k,v in vars(self).items())
+        
 if __name__ == "__main__":
     rep = Report()
     rep.title = "Hell"

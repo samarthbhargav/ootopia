@@ -14,17 +14,41 @@ from flask import request
 from functools import wraps
 from config import config
 from service import ReportService
+from flask_cors import CORS
+import flask
  
 app = Flask(__name__)
+
+cors = CORS(app)
+
+@app.after_request
+def add_cors(resp):
+    """ Ensure all responses have the CORS headers. This ensures any failures are also accessible
+        by the client. """
+    resp.headers['Access-Control-Allow-Origin'] = flask.request.headers.get('Origin','*')
+    resp.headers['Access-Control-Allow-Credentials'] = 'true'
+    resp.headers['Access-Control-Allow-Methods'] = 'POST, OPTIONS, GET'
+    resp.headers['Access-Control-Allow-Headers'] = flask.request.headers.get( 
+        'Access-Control-Request-Headers', 'Authorization' )
+    # set low for debugging
+    if app.debug:
+        resp.headers['Access-Control-Max-Age'] = '1'
+    return resp
+    
 api = restful.Api(app)
+#api.decorators = [cors.crossdomain(origin='*', headers=['accept', 'Content-Type'])]
 
+class Hello(restful.Resource):
+    def get(self):
+        return { "Hello" : "World"}
 
-
+#    def options(self):
+#        pass
 def basic_authentication():
     """
     Performs HTTP Basic Authentication
     """
-    if request.authorization.username == config.api_username and request.authorization.password == config.api_password:
+    if request.authorization is not None and request.authorization.username == config.api_username and request.authorization.password == config.api_password:
         return True
     return False
 
@@ -55,7 +79,8 @@ class Resource(restful.Resource):
     """
     method_decorators = [authenticate]
 
-class PostReportAPI(Resource):
+
+class PostReportAPI(restful.Resource):
     
     """
     Api for Posting a Report
@@ -76,10 +101,13 @@ class PostReportAPI(Resource):
     """
     def post(self):
         json_data = request.get_json(force=True) 
-        service.insert(json_data)        
+        print json_data
+        service.insert(json_data)
+        return {"message":"Report successfully added"}
     
-    
-class GetReportAPI(Resource):
+#    def options(self):
+#        pass    
+class GetReportAPI(restful.Resource):
     """
     Api for Getting a Report
     Path: /report/<report_id>
@@ -101,21 +129,38 @@ class GetReportAPI(Resource):
     def get(self, report_id):
         return service.get_report(report_id)
     
-    
-class SearchAPI(Resource):
+#    def options(self):
+#        pass
+class SearchAPI(restful.Resource):
     """
     """
     def get(self):
         return service.fetch_all()
 
+#    def options(self):
+#        pass
 
-class SearchByLocationAPI(Resource):
+class SearchByLocationAPI(restful.Resource):
     """
     Api for Search by Location
     """
+    def get(self, location):
+        return service.get_reports_by_location(location)
+    
+#    def options(self):
+#        pass
+
+class UpdateReportStatusAPI(restful.Resource):
+    
+    def put(self, Id, new_status):
+        service.update_status(Id, new_status)
+        
 api.add_resource(GetReportAPI, '/report/<string:report_id>')
-api.add_resource(PostReportAPI, '/report/')
-api.add_resource(SearchAPI, '/search/')
+api.add_resource(PostReportAPI, '/report')
+api.add_resource(SearchAPI, '/search')
+api.add_resource(SearchByLocationAPI, '/search/<string:location>')
+api.add_resource(Hello, '/hello')
+api.add_resource(UpdateReportStatusAPI, '/report/<string:Id>/<string:new_status>')
 
 if __name__ == '__main__':
     app.run(debug=True)
