@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>Add new Report</title>
+
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='css/styles.css' rel='stylesheet' type='text/css'>
+  </head>
+
+
+  <body>
+    <div id="header">
+      
+    </div>
+    <form id="report-form">
+      <input type="text" id="title" placeholder="Enter the title"/>
+      <input type="text-area" id="description" placeholder="Enter a description (optional)"/>
+      <!-- time -->
+      <!-- coords -->		
+
+      <div id="filthiness">
+	<label> How filthy / unbearable is the spot? </label>
+	<select id="difficulty" class="styled-select">
+	  <option value="1">1</option> 
+	  <option value="2">2</option>
+	  <option value="3">3</option>
+	  <option value="4">4</option>
+	  <option value="5">5</option>
+	</select>
+      </div>
+      <button id="captureImage">Capture Photo</button>
+      <!-- <img style="display:none;width:60px;height:60px;" id="smallImage" src="" /> -->
+      <button id="submit"> Submit </button>
+      
+    </form>
+    
+
+
+
+
+    <div id="map-canvas"></div>
+
+
+    <!--<script type="text/javascript"
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGRMwIaIRJiucc-apdSZmeWHjjhw2dCYs"> -->
+
+    <script type="text/javascript" charset="utf-8" src="js/index.js"></script>
+  </body>
+
+</html>

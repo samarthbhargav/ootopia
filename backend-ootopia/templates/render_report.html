@@ -1,77 +1,109 @@
 <html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<style>			
-			html, body {				
-				margin: 0px;
-				padding: 0px;
-			}
-			
-			#header {
-				font-size: 150%;
-				color: white;
-				background-color:#38BC5F;
-				padding: 3%;
-				margin-bottom: 3%;
-				width: 100%;				
-			}
-			
-			#data {
-				padding: 3%;
-			}
-			
-			#date {
-				
-			}
-			
-			#desc {
-				color: #ccc;
-			}
-			
-		</style>
-	</head>
-	<body>
-		
-		<div id="header">
-			{% if "title" in data: %}
-			    {{ data["title"] }}
-			 {% endif %}
-		</div>
-		
-		<div id="data">
-			<div>
-				<h3>Status</h3>
-				{% if "status" in data: %}
-					<h2>{{ data["status"] }}</h2>
-				{% endif %}
-			</div>
-			<div id="photo">
-				{% if "id" in data: %}
-					<img src="http://j5gm.t.proxylocal.com/report/{{ data["id"] }}/image" </h2>
-				{% endif %}				
-			</div>
-			
-			
-			{% if "time" in data: %}
-				<div id="date">
-					Date: 
-					<h2>{{ data["time"] }}</h2>
-				</div>					
-			{% endif %}
-			
-			{% if "description" in data: %}
-				<blockquote>
-					<div id="desc">			
-						{{ data["description"] }}
-					</div>
-				</blockquote>
-			{% endif %}
-			
-			<div id="difficulty">
-				{% if "difficulty" in data: %}
-					<h2>{{ data["difficulty"] }}</h2>
-				{% endif %}		
-			</div>			
-		</div>		
-	</body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+    <style>			
+      html, body {
+      font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+      margin: 0px;
+      padding: 0px;
+      }
+      
+      #header {
+      text-align: center;
+      font-size: 150%;
+      color: white;
+      background-color:#38BC5F;
+      padding: 3%;
+      margin-bottom: 3%;
+      width: 100%;				
+      }
+
+      #photo {
+      height: 200px;
+      overflow: hidden
+      }
+      
+      #data {
+      padding: 3%;
+      }
+
+      img {
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      }
+
+      p {
+      font-weight: 200;
+      }
+      
+      #date {
+      
+      }
+      
+      blockquote:before {
+      content: '"';
+      display: inline;
+      }
+      blockquote:after {
+      content: '"';
+      display: inline;
+      }
+
+      #desc {
+      display: inline;
+      font-style: italic;
+      font-weight: 100;
+      }
+      
+    </style>
+  </head>
+  <body>
+    
+    <div id="header">
+      {% if "title" in data: %}
+      {{ data["title"] }}
+      {% endif %}
+    </div>
+    
+    <div id="data">
+      <div>
+	<h2>Status</h2>
+	{% if "status" in data: %}
+	<p>{{ data["status"] }}</p>
+	{% endif %}
+      </div>
+      <div id="photo">
+	{% if "id" in data: %}
+	<img src="http://j5gm.t.proxylocal.com/report/{{ data["id"] }}/image" />
+	{% endif %}				
+      </div>
+      
+      
+      {% if "time" in data: %}
+      <h2> Date </h2>
+      <div id="date">
+	<p>{{ data["time"] }}</p>
+      </div>					
+      {% endif %}
+      
+      {% if "description" in data: %}
+      <h2> Description </h2>
+      <blockquote>
+	<div id="desc">			
+	  {{ data["description"] }}
+	</div>
+      </blockquote>
+      {% endif %}
+      
+      <div id="difficulty">
+        <h2> Difficulty </h2>
+	{% if "difficulty" in data: %}
+	<p>{{ data["difficulty"] }}</p>
+	{% endif %}		
+      </div>			
+    </div>		
+  </body>
 </html>

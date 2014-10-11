@@ -1,0 +1,71 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    width: 100%;
+    height: 100%;
+    font-weight: 400;
+    font-family: 'Helvetica Neue', 'Arial', san-serif;
+}
+
+#report-form {
+    margin: 4%;
+    background-color: white;
+    width:auto;
+    height: inherit;
+    font-size: 1.5em;
+}
+
+
+#report-form input {
+    display: block;
+    margin: 4% 0;
+    width: 100%;
+    font-size: 1em;
+    padding: 2%;
+    font: 'Helvetica Neue', 'Arial', san-serif;
+    border: 1px solid #CCC;
+    /* -webkit-appearance: none; */
+    /* -moz-appearance: none; */
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: #ccc;
+    font-weight: 100;
+    font-family: 'Helvetica Neue', 'Arial', san-serif;
+}
+
+
+select {
+
+    background: white;
+    border-radius: 0px;
+    padding: 2%;
+    width: 15%;
+    text-align: center;
+    -webkit-appearance: none;
+
+}
+
+
+select option {
+    color: red;
+}
+
+#showMap {
+    background-color: #38AC5F;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left:0;
+    color: white;
+    font-size: 1.25em;
+    outline: none;
+    border: none;
+    padding: 3%;
+}
+
+
+.color-class {
+    fill: #ddc;
+}
