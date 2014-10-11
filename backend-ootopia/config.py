@@ -12,7 +12,8 @@ _config = {
    "mongo-username" : None,
    "mongo-password": None,
    "mongo-port" : 27017,
-   "mongo-host": "localhost"
+   "mongo-host": "localhost",
+   "app-name": "Ootopia"   
 }
 
 
@@ -39,6 +40,9 @@ class Config(object):
     @property
     def mongo_host(self):
         return _config["mongo-host"]
-        
+    
+    @property
+    def app_name(self):
+        return _config["app_name"]
         
 config = Config()
