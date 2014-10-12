@@ -103,6 +103,7 @@ class PostReportAPI(restful.Resource):
     """
     def post(self):
         json_data = request.get_json(force=True) 
+        json_data["status"] = "New"
         print json_data
         service.insert(json_data)
         return {"message":"Report successfully added"}
@@ -167,7 +168,7 @@ class GetMapPage(restful.Resource):
 @app.route('/render/<report_id>')
 def render(report_id):
     report = service.get_report(report_id)
-    report["time"] = datetime.datetime.fromtimestamp(report["time"]).strftime('%d-%m-%Y %H:%M:%S')
+    report["time"] = datetime.datetime.fromtimestamp(report["time"] / 1000).strftime('%d-%m-%Y %H:%M:%S')
     return flask.render_template('render_report.html', data=(report))
 
     
